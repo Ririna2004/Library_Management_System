@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css"/>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div>
+<h2>Library Book Management</h2>
+<div align="left"><h3><a th:href="@{'/new'}">Add New Book</a></h3></div>
+<div class="col-sm-5" align="center">
+    <div class="panel-body" align="center">
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th>Book ID</th><th>Title</th><th>Author</th><th>Category</th><th>Available Copies</th><th>Edit</th><th>Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="book : ${listbook}">
+                <td th:text="${book.id}"></td>
+                <td th:text="${book.title}"></td>
+                <td th:text="${book.author}"></td>
+                <td th:text="${book.category}"></td>
+                <td th:text="${book.availableCopies}"></td>
+                <td><a th:href="@{'/edit/' + ${book.id}}">Edit</a></td>
+                <td><a th:href="@{'/delete/' + ${book.id}}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+<form th:action="@{/logout}" method="get"><button type="submit">Logout</button></form>
+</body>
+</html>

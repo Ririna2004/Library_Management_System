@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>My Borrowed Books</title></head>
+<body>
+<h1>Books You Have Borrowed</h1>
+<table border="1">
+    <thead><tr><th>Book ID</th><th>Issue Date</th><th>Due Date</th></tr></thead>
+    <tbody>
+    <tr th:each="record : ${borrowedBooks}">
+        <td th:text="${record.bookId}"></td>
+        <td th:text="${record.issueDate}"></td>
+        <td th:text="${record.dueDate}"></td>
+    </tr>
+    </tbody>
+</table>
+<a th:href="@{/welcome}">Back to library</a>
+</body>
+</html>

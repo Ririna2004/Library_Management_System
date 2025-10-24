@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Add/Edit Book</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css"/>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div align="center">
+<h1>Add/Edit Book</h1><br/>
+<div class="col-sm-4">
+<form th:action="@{/save}" th:object="${book}" method="post">
+    <label>Book Title</label>
+    <input type="text" th:field="*{title}" class="form-control" placeholder="Book Title"/><br/>
+    <label>Author</label>
+    <input type="text" th:field="*{author}" class="form-control" placeholder="Author"/><br/>
+    <label>Category</label>
+    <input type="text" th:field="*{category}" class="form-control" placeholder="Category"/><br/>
+    <label>Available Copies</label>
+    <input type="number" th:field="*{availableCopies}" class="form-control" placeholder="Available Copies"/><br/>
+    <button type="submit" class="btn btn-info">Save</button>
+</form>
+</div>
+</div>
+</body>
+</html>
